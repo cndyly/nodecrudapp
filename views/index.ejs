@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/style/main.css">
+        <title>Document</title>
+</head>
+<body>
+        <h1>my page from views ejs</h1>
+        <form action="/quotes" method="post">
+        <input type="text" placeholder="name" name="name" >
+        <input type="text" placeholder="quotes" name="quotes" >
+        <button type="submit">Submit</button>
+</form>
+         <h1>My Quotes Crud App</h1>
+         <ul class="quotes">
+                <% for(var i =0; i< quotes.length; i++) {%>
+
+        <li class="quotes">
+                <!-- output from iterated quotes object name -->
+                <span> <span><%=quotes[i].name %></span>: </span> 
+                <!-- for quotes -->
+                <span> <%= quotes[i].quotes %> </span>
+        </li>
+        <%}%>
+
+         </ul>
+         <!-- for update -->
+
+<div>
+         <h2>Update some of the quotes</h2>
+         <p>Replace Monday's quote with a Friday quote</p>
+         <button id="update-button">Replace Monday's quote</button>
+</div>
+
+<div>
+        <h2>Remove Monday's quotes'</h2>
+        <p>
+                Delete one monday's quote. Does nothing if there are no more Monday's quote
+        </p>
+        <button id="delete-button"> Delete Monday's quote</button>
+        <div id="message"></div>
+</div>
+<script src="/main.js"></script>
+</body>
+</html>
